@@ -6,32 +6,32 @@ function Header() {
             <Nav>
                 <Logo src='/images/logo.svg'/>
                 <NavMenu>
-                    <a>
-                        <img src='/images/home-icon.svg'/>
+                    <a href="#">
+                        <img src='/images/home-icon.svg' alt=""/>
                         <span>HOME</span>
                     </a>
-                    <a>
-                        <img src='/images/search-icon.svg'/>
+                    <a href="#">
+                        <img src='/images/search-icon.svg' alt=""/>
                         <span>SEARCH</span>
                     </a>
-                    <a>
-                        <img src='/images/watchlist-icon.svg'/>
+                    <a href='#'>
+                        <img src='/images/watchlist-icon.svg' alt=""/>
                         <span>WATCHLIST</span>
                     </a>
-                    <a>
-                        <img src='/images/original-icon.svg'/>
+                    <a href='#'>
+                        <img src='/images/original-icon.svg' alt=""/>
                         <span>ORIGINALS</span>
                     </a>
-                    <a>
-                        <img src='/images/movie-icon.svg'/>
+                    <a href='#'>
+                        <img src='/images/movie-icon.svg' alt=""/>
                         <span>MOVIES</span>
                     </a>
-                    <a>
-                        <img src='/images/series-icon.svg'/>
+                    <a href='#'>
+                        <img src='/images/series-icon.svg' alt=""/>
                         <span>SERIES</span>
                     </a>
                 </NavMenu>
-                <UserImg src="https://scontent.fist2-3.fna.fbcdn.net/v/t1.6435-1/c0.25.200.200a/p200x200/48035070_2266390030272527_2164551719185285120_n.jpg?_nc_cat=104&ccb=1-5&_nc_sid=7206a8&_nc_ohc=a_5pKjldDcwAX8JZS5y&_nc_ht=scontent.fist2-3.fna&oh=00_AT_j2o8MAARWXndYG7uiAM4Nzw5ojKPVr1cADaJvnHMytA&oe=61E1F4C3" />
+                <UserImg alt="" src="https://scontent.fist2-3.fna.fbcdn.net/v/t1.6435-1/c0.25.200.200a/p200x200/48035070_2266390030272527_2164551719185285120_n.jpg?_nc_cat=104&ccb=1-5&_nc_sid=7206a8&_nc_ohc=a_5pKjldDcwAX8JZS5y&_nc_ht=scontent.fist2-3.fna&oh=00_AT_j2o8MAARWXndYG7uiAM4Nzw5ojKPVr1cADaJvnHMytA&oe=61E1F4C3" />
             </Nav>
         </div>
     )
