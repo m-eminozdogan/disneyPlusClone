@@ -62,6 +62,8 @@ const NavMenu=styled.div`
         display:flex;
         align-items:center;
         padding:0 12px;
+        color:white;
+        text-decoration:none;
         img{
             height:20px;
         }
