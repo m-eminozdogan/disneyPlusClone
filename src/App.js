@@ -3,6 +3,7 @@ import './App.css';
 import Header from './components/Header';
 import Home from './components/Home';
 import Detail from './components/Detail'
+import Login from './components/Login';
 import {
   BrowserRouter,
   Routes,
@@ -14,8 +15,9 @@ function App() {
       <BrowserRouter>
         <Header />
         <Routes>
+          <Route path="/login" element={<Login />} />
           <Route path="/" element={<Home />} />
-          <Route path="detail" element={<Detail />} />         
+          <Route path="detail" element={<Detail />} />
         </Routes>
       </BrowserRouter>
     </div>
