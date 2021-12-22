@@ -1,34 +1,45 @@
 import React from 'react'
 import styled from 'styled-components'
+import { selectMovies } from '../features/movie/movieSlice'
+import { useSelector } from 'react-redux'
 function Movies() {
+    const movies = useSelector(selectMovies)
+    console.log('movies geliyor ulan ', movies);
     return (
         <Container>
             <h4>Recommended For You</h4>
             <Content>
-                <Wrap>
-                    <img alt="" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRTMyfYecoIsc_td1T3S3cr7MMhBOLRCqtUf-3HQ8Jv5eZSx0V4nt7xCOXfezt38MNuFAs&usqp=CAU"/>
+                {movies &&
+                    movies.map((movie,index) => (
+                        <Wrap key={index}>
+                            <img alt="" src={movie.cardImg} />
+                        </Wrap>
+                    ))
+                }
+                {/* <Wrap>
+                    <img alt="" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRTMyfYecoIsc_td1T3S3cr7MMhBOLRCqtUf-3HQ8Jv5eZSx0V4nt7xCOXfezt38MNuFAs&usqp=CAU" />
                 </Wrap>
                 <Wrap>
-                    <img alt="" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRTMyfYecoIsc_td1T3S3cr7MMhBOLRCqtUf-3HQ8Jv5eZSx0V4nt7xCOXfezt38MNuFAs&usqp=CAU"/>
+                    <img alt="" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRTMyfYecoIsc_td1T3S3cr7MMhBOLRCqtUf-3HQ8Jv5eZSx0V4nt7xCOXfezt38MNuFAs&usqp=CAU" />
                 </Wrap>
                 <Wrap>
-                    <img alt="" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRTMyfYecoIsc_td1T3S3cr7MMhBOLRCqtUf-3HQ8Jv5eZSx0V4nt7xCOXfezt38MNuFAs&usqp=CAU"/>
+                    <img alt="" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRTMyfYecoIsc_td1T3S3cr7MMhBOLRCqtUf-3HQ8Jv5eZSx0V4nt7xCOXfezt38MNuFAs&usqp=CAU" />
                 </Wrap>
                 <Wrap>
-                    <img alt="" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRTMyfYecoIsc_td1T3S3cr7MMhBOLRCqtUf-3HQ8Jv5eZSx0V4nt7xCOXfezt38MNuFAs&usqp=CAU"/>
+                    <img alt="" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRTMyfYecoIsc_td1T3S3cr7MMhBOLRCqtUf-3HQ8Jv5eZSx0V4nt7xCOXfezt38MNuFAs&usqp=CAU" />
                 </Wrap>
                 <Wrap>
-                    <img alt="" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRTMyfYecoIsc_td1T3S3cr7MMhBOLRCqtUf-3HQ8Jv5eZSx0V4nt7xCOXfezt38MNuFAs&usqp=CAU"/>
+                    <img alt="" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRTMyfYecoIsc_td1T3S3cr7MMhBOLRCqtUf-3HQ8Jv5eZSx0V4nt7xCOXfezt38MNuFAs&usqp=CAU" />
                 </Wrap>
                 <Wrap>
-                    <img alt="" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRTMyfYecoIsc_td1T3S3cr7MMhBOLRCqtUf-3HQ8Jv5eZSx0V4nt7xCOXfezt38MNuFAs&usqp=CAU"/>
+                    <img alt="" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRTMyfYecoIsc_td1T3S3cr7MMhBOLRCqtUf-3HQ8Jv5eZSx0V4nt7xCOXfezt38MNuFAs&usqp=CAU" />
                 </Wrap>
                 <Wrap>
-                    <img alt="" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRTMyfYecoIsc_td1T3S3cr7MMhBOLRCqtUf-3HQ8Jv5eZSx0V4nt7xCOXfezt38MNuFAs&usqp=CAU"/>
+                    <img alt="" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRTMyfYecoIsc_td1T3S3cr7MMhBOLRCqtUf-3HQ8Jv5eZSx0V4nt7xCOXfezt38MNuFAs&usqp=CAU" />
                 </Wrap>
                 <Wrap>
-                    <img alt="" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRTMyfYecoIsc_td1T3S3cr7MMhBOLRCqtUf-3HQ8Jv5eZSx0V4nt7xCOXfezt38MNuFAs&usqp=CAU"/>
-                </Wrap>
+                    <img alt="" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRTMyfYecoIsc_td1T3S3cr7MMhBOLRCqtUf-3HQ8Jv5eZSx0V4nt7xCOXfezt38MNuFAs&usqp=CAU" />
+                </Wrap> */}
             </Content>
         </Container>
     )
@@ -36,15 +47,16 @@ function Movies() {
 
 export default Movies
 
-const Container=styled.div`
+const Container = styled.div`
     padding:
 `
-const Content=styled.div`
+const Content = styled.div`
     display:grid;
     grid-gap:25px;
     grid-template-columns:repeat(4,minmax(0,1fr));
 `
-const Wrap=styled.div`
+const Wrap = styled.div`
+    margin-bottom:4px;
     cursor:pointer;
     border-radius:10px;
     overflow:hidden;
