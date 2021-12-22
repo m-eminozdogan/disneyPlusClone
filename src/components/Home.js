@@ -15,6 +15,8 @@ function Home() {
 
         onSnapshot(collection(db, 'movies'), (snapshot) => {
             console.log(snapshot);
+            
+
         })
     })
 
