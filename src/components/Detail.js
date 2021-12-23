@@ -1,43 +1,64 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import styled from 'styled-components'
+import { useParams } from 'react-router-dom'
+import db from '../firebase'
+import { doc, onSnapshot } from 'firebase/firestore'
+
+
+
 function Detail() {
+    const { id } = useParams()
+    const [movie, setMovie] = useState()
+
+    useEffect(() => {
+        //grab movie info from database
+        const unsub = onSnapshot(doc(db, "movies", id), (doc) => {
+            //console.log("Current data: ", doc.data());
+            setMovie(doc.data())
+
+        });
+    }, [])
+
+    console.log('movie found: ', movie);
+
     return (
         <Container>
-            <Background>
-                <img alt="" src="https://prod-ripcut-delivery.disney-plus.net/v1/variant/disney/9D8AEB7DE234898392BFD20E7D9B112B841E920AF9A3F54CCFB966722AFF3461/scale?width=1920&aspectRatio=1.78&format=jpeg" />
-            </Background>
-            <ImageTitle>
-                <img alt="" src="https://upload.wikimedia.org/wikipedia/fr/1/1a/Bao_logo.png" />
-            </ImageTitle>
-            <Controls>
+            {movie && (
+                <>
+                    <Background>
+                        <img alt="" src={movie.backgroundImg} />
+                    </Background>
+                    <ImageTitle>
+                        <img alt="" src={movie.titleImg} />
+                    </ImageTitle>
+                    <Controls>
 
-                <PlayButton>
-                    <img alt="" src="/images/play-icon-black.png" />
-                    <span>PLAY</span>
-                </PlayButton>
+                        <PlayButton>
+                            <img alt="" src="/images/play-icon-black.png" />
+                            <span>PLAY</span>
+                        </PlayButton>
 
-                <TrailerButton>
-                    <img alt="" src="/images/play-icon-white.png" />
-                    <span>TRAILER</span>
-                </TrailerButton>
+                        <TrailerButton>
+                            <img alt="" src="/images/play-icon-white.png" />
+                            <span>TRAILER</span>
+                        </TrailerButton>
 
-                <AddButton>
-                    <span>+</span>
-                </AddButton>
+                        <AddButton>
+                            <span>+</span>
+                        </AddButton>
 
-                <GroupWatchButton>
-                    <img alt="" src="/images/group-icon.png" />
-                </GroupWatchButton>
-            </Controls>
-            <SubTitle>
-                2018 + 7m + Famil, Fantasy, Kids, Animation
-            </SubTitle>
-            <Description>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras facilisis urna at massa
-                maximus aliquet. Etiam vel risus vel turpis finibus congue. Duis imperdiet dictum lectus,
-                eu tincidunt risus vulputate at. Proin id nibh condimentum, efficitur arcu a,
-                ultrices massa. Nunc ipsum libero, lobortis et lectus vitae, semper pretium quam.
-            </Description>
+                        <GroupWatchButton>
+                            <img alt="" src="/images/group-icon.png" />
+                        </GroupWatchButton>
+                    </Controls>
+                    <SubTitle>
+                        {movie.subTitle}
+                    </SubTitle>
+                    <Description>
+                        {movie.description}
+                    </Description>
+                </>
+            )}
         </Container>
     )
 }
